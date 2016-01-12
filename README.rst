@@ -53,12 +53,10 @@ Installing
 Authors
 -------
 
--  **Jason Rigdenn** -
+-  **Jason Rigden**
 
 License
 -------
 
-This project is licensed under the MIT License - see the `LICENSE.md`_
-file for details
+This project is licensed under the MIT License
 
-.. _LICENSE.md: LICENSE.md
