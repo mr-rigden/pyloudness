@@ -1,6 +1,9 @@
 pyLoudness
 ==========
 
+.. image:: https://badge.fury.io/py/pyloudness.svg
+    :target: https://badge.fury.io/py/pyloudness
+
 How loud is that file? Sounds simple, right? Check out
 http://www.r128audio.com for information about loudness standards.
 
