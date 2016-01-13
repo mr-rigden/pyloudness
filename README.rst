@@ -4,7 +4,7 @@ pyLoudness
 .. image:: https://badge.fury.io/py/pyloudness.svg
     :target: https://badge.fury.io/py/pyloudness
     
-.. image:: https://pypip.in/d/pyloudness/badge.png
+.. image:: https://pypip.in/d/pyloudness/badge.svg
     :target: https://crate.io/packages/pyloudness/
 
 How loud is that file? Sounds simple, right? Check out
