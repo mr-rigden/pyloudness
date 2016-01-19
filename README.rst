@@ -54,6 +54,13 @@ Installing
 
     pip install pyloudness
 
+Miscellania
+~~~~~~~~~~
+
+::
+
+ffmpeg -nostats -i file_location -filter_complex ebur128=peak=true -f null -
+
 Authors
 -------
 
