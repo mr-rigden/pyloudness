@@ -4,7 +4,7 @@ import os
 
 def get_loudness(file_location):
     command = ['ffmpeg', '-nostats', '-i', file_location,  '-filter_complex', 'ebur128=peak=true', '-f', 'null', '-']
-    output = subprocess.check_output(command, stderr=subprocess.STDOUT)
+    output = subprocess.check_output(command, stderr=subprocess.STDOUT, universal_newlines=True)
     summary = output.split("Summary:")[-1]
     output = None
     integrated_loudness = summary.split("Integrated loudness:",1)[1].split("Loudness range:",1)[0]
@@ -40,7 +40,7 @@ def set_loudness(file_location, loudness_in_dB=-23, ignore_clipping=False):
                     file_location.split('.')[-1]
     # warning if clipping
     command = ['ffmpeg', '-i', file_location, '-af', 'astats', '-f', 'null', '-'] # get stats
-    output = subprocess.check_output(command, stderr=subprocess.STDOUT)
+    output = subprocess.check_output(command, stderr=subprocess.STDOUT, universal_newlines=True)
     peak = float(output.split('Peak level dB: ')[-1].split('\n')[0]) # take last, overall peak
     assert peak<=0.0, 'Peak allegedly positive (dB)'
     if peak + gain_in_dB >= 0.0: # check if clipping (liberally)
@@ -51,7 +51,7 @@ def set_loudness(file_location, loudness_in_dB=-23, ignore_clipping=False):
             return # skip, don't apply gain
     # apply gain
     command = ['ffmpeg', '-y', '-i', file_location,  '-af', 'volume='+str(linear_gain), output_file]
-    _ = subprocess.check_output(command, stderr=subprocess.STDOUT) # apply gain; don't print ffmpeg output
+    _ = subprocess.check_output(command, stderr=subprocess.STDOUT, universal_newlines=True) # apply gain; don't print ffmpeg output
     
 def equal_loudness(folder_location, loudness_in_dB=-23, ignore_clipping=False):
     for file_name in os.listdir(folder_location):
